@@ -4,13 +4,13 @@
 
 <section class="page-hero grid-bg">
 	<div class="shell">
-		<p class="eyebrow">Information & Notices</p>
 		<h1>Privacy Policy</h1>
 	</div>
 </section>
 
 <section class="content-section">
 	<div class="shell legal-page">
+		<p class="eyebrow">Information & notices</p>
 		<h2>Information collection</h2>
 		<p>Trinay Cyber Technologies respects the privacy of our clients.</p>
 		<p>No information collected will be sold or released intentionally to the public.</p>

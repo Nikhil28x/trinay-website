@@ -6,6 +6,14 @@ export type Service = {
 	bullets?: string[];
 };
 
+export type HomeFeature = {
+	title: string;
+	body: string;
+	description?: string;
+	bulletHead?: string;
+	bullets?: string[];
+};
+
 export const services: Service[] = [
 	{
 		title: 'Web App Pentesting',
@@ -67,9 +75,34 @@ export const pentestingServices = [
 	'External Pentesting'
 ];
 
+export const homeFeatures: HomeFeature[] = [
+	{
+		title: 'Pentesting-as-a-Service',
+		body: "Trinay simulates real-world cyber attack to test the organization's security posture. Our custom based approach assess critical assets of your IT infrastructure and components.",
+		bullets: pentestingServices
+	},
+	{
+		title: 'Ransomware Assessment',
+		body: "Ransomware is not a new threat. It's been evolving since 1980's. Paying a ransom doesn't solve your security problmes and yet there is no guarantee that you will restore your files.",
+		description:
+			'Trinay experts perform automated and manual testing, and provide a human-assisted intelligence needed to mitigate the risk associated with ransomware.'
+	},
+	{
+		title: 'PCI ASV Scanning',
+		body: "Trinay's ASV Vendors perform the vulnerability scanning solution specifically for PCI DSS compliance.",
+		bulletHead: 'PCI ASV scans are',
+		bullets: [
+			'Non-disruptive',
+			'No stealth installations of softwares',
+			'Inline with PCI reporting structure',
+			'Excludes dangerous tests'
+		]
+	}
+];
+
 export const approachOptions = [
 	'Quarterly Scanning plus Annual Pentesting',
-	'Monthly Scanning plus Quarterly Pentesting',
+	'Monthly Scanning plus Quarterly Pentesting or',
 	'Ad-hoc Scanning plus Pentesting'
 ];
 

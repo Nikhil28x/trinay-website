@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { contact, services } from '$lib/data';
+	let { mode = 'quote' }: { mode?: 'quote' | 'contact' } = $props();
 
 	let name = $state('');
 	let email = $state('');
@@ -24,38 +25,66 @@
 	<div class="form-grid">
 		<label>
 			<span>Name</span>
-			<input bind:value={name} type="text" name="name" placeholder="Your name" required />
+			<input
+				bind:value={name}
+				type="text"
+				name="name"
+				placeholder={mode === 'quote' ? 'Name' : ''}
+				required
+			/>
 		</label>
 		<label>
-			<span>Email</span>
-			<input bind:value={email} type="email" name="email" placeholder="you@company.com" required />
+			<span>{mode === 'quote' ? 'Email' : 'Email Address'}</span>
+			<input
+				bind:value={email}
+				type="email"
+				name="email"
+				placeholder={mode === 'quote' ? 'example@example.example' : ''}
+				required
+			/>
 		</label>
 		<label>
-			<span>Phone</span>
-			<input bind:value={phone} type="tel" name="phone" placeholder="(+91) 1234 566 789" required />
+			<span>{mode === 'quote' ? 'Phone' : 'Mobile/Phone'}</span>
+			<input
+				bind:value={phone}
+				type="tel"
+				name="phone"
+				placeholder={mode === 'quote' ? '(+91) 1234 566 789' : ''}
+				required
+			/>
 		</label>
-		<label>
-			<span>Company</span>
-			<input bind:value={company} type="text" name="company" placeholder="Company name" required />
-		</label>
-		<label class="full">
-			<span>Service</span>
-			<select bind:value={service} name="service" required>
-				<option value="" disabled>Select from below</option>
-				{#each services as option}
-					<option value={option.title}>{option.title}</option>
-				{/each}
-			</select>
-		</label>
+		{#if mode === 'quote'}
+			<label>
+				<span>Service</span>
+				<select bind:value={service} name="service" required>
+					<option value="" disabled>Select From Below</option>
+					{#each services as option}
+						<option value={option.title}>{option.title}</option>
+					{/each}
+				</select>
+			</label>
+			<label class="full">
+				<span>Company</span>
+				<input
+					bind:value={company}
+					type="text"
+					name="company"
+					placeholder="Company Name"
+					required
+				/>
+			</label>
+		{/if}
 		<label class="full">
 			<span>Your Message</span>
 			<textarea
 				bind:value={message}
 				name="message"
 				rows="5"
-				placeholder="Your requirement / message here..."
+				placeholder={mode === 'quote' ? 'Your Requirement/Message Here....' : ''}
 				required></textarea>
 		</label>
 	</div>
-	<button class="button button-light" type="submit">Get a Quote <span>↗</span></button>
+	<button class="button button-light" type="submit"
+		>{mode === 'quote' ? 'Get a Quote' : 'Send Message'} <span>↗</span></button
+	>
 </form>

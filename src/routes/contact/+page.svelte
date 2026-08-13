@@ -13,14 +13,16 @@
 
 <section class="page-hero grid-bg">
 	<div class="shell">
-		<p class="eyebrow">Get In Touch</p>
 		<h1>Contact Us</h1>
-		<p>Fill the details today to speak with an expert about your specific needs.</p>
 	</div>
 </section>
 
 <section class="content-section">
 	<div class="shell contact-page-grid">
+		<div class="contact-page-form">
+			<h2>Write Us</h2>
+			<ContactForm mode="contact" />
+		</div>
 		<div>
 			<p class="eyebrow">Our Contact Details</p>
 			<div class="contact-cards">
@@ -41,9 +43,15 @@
 					<a href={`mailto:${contact.email}`}>{contact.email}</a>
 				</div>
 			</div>
-		</div>
-		<div class="contact-page-form">
-			<ContactForm />
+			<div class="contact-socials">
+				<h3>Follow us:</h3>
+				<div class="socials">
+					<a href={contact.facebook} target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
+					<a href="/" aria-label="Twitter">x</a>
+					<a href="/" aria-label="Instagram">◎</a>
+					<a href={contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

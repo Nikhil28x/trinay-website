@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { contact, services } from '$lib/data';
+	import { contact } from '$lib/data';
 </script>
 
 <footer>
@@ -17,30 +17,37 @@
 			</div>
 		</div>
 
-		<div>
-			<p class="footer-title">Services</p>
-			<ul>
-				{#each services.slice(0, 3) as service}
-					<li><a href={`/services/${service.slug}`}>{service.title}</a></li>
-				{/each}
-			</ul>
-		</div>
-
-		<div>
-			<p class="footer-title">Solutions</p>
-			<ul>
-				{#each services.slice(3) as service}
-					<li><a href={`/services/${service.slug}`}>{service.title}</a></li>
-				{/each}
-			</ul>
-		</div>
-
 		<div class="footer-contact">
 			<p class="footer-title">Address</p>
 			<address>{contact.address}</address>
 			<a href={`mailto:${contact.email}`}>{contact.email}</a>
 			<a href={`tel:${contact.indiaPhone.replace(/\s/g, '')}`}>{contact.indiaPhone}</a>
 			<a href={`tel:${contact.usPhone.replace(/[\s()]/g, '')}`}>{contact.usPhone}</a>
+		</div>
+
+		<div>
+			<p class="footer-title">Solution</p>
+			<ul>
+				<li><a href="/services/ransomware-assessment">Ransomware Assessment</a></li>
+				<li><a href="/services/vulnerability-scanning">Vulnerability Scanning</a></li>
+				<li><a href="/services/pci-asv-scanning">PCI-ASV Scanning</a></li>
+			</ul>
+			<p class="footer-title footer-subtitle">Penetration Testing</p>
+			<ul>
+				<li><a href="/services/web-app-pentesting">Web App Pentesting</a></li>
+				<li><a href="/services/mobile-app-pentesting">Mobile App Pentesting</a></li>
+				<li><a href="/services/network-pentesting">Network Pentesting</a></li>
+			</ul>
+		</div>
+
+		<div>
+			<p class="footer-title">Useful Links</p>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/services">Services</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
 		</div>
 	</div>
 

@@ -4,13 +4,13 @@
 
 <section class="page-hero grid-bg">
 	<div class="shell">
-		<p class="eyebrow">Information & Notices</p>
 		<h1>Terms & Conditions</h1>
 	</div>
 </section>
 
 <section class="content-section">
 	<div class="shell legal-page">
+		<p class="eyebrow">Information & notices</p>
 		<p>
 			The contents hereof are the sole and exclusive property of Trinay Cyber Technologies and may
 			not be, for whatsoever purpose, reproduced, stored, copied or archived in any manner
