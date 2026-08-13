@@ -1,6 +1,11 @@
 import { cpSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 
+if (process.env.VERCEL) {
+	console.log('Using the SvelteKit Vercel build output.');
+	process.exit(0);
+}
+
 const projectRoot = process.cwd();
 const cloudflareOutput = join(projectRoot, '.svelte-kit', 'cloudflare');
 const deploymentOutput = join(projectRoot, 'dist');
