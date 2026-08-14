@@ -10,6 +10,15 @@
 		'bx-check-shield',
 		'bx-time-five'
 	];
+
+	const whyImages = [
+		'/images/services-3.jpg',
+		'/images/services-1.jpg',
+		'/images/services-5.jpg',
+		'/images/services-10.jpg',
+		'/images/services-4.jpg',
+		'/images/services-9.jpg'
+	];
 </script>
 
 <svelte:head>
@@ -157,6 +166,7 @@
 		<div class="why-grid">
 			{#each whyTrinay as item, index}
 				<article class="group">
+					<img class="why-card-image" src={whyImages[index]} alt="" loading="lazy" />
 					<span>{String(index + 1).padStart(2, '0')}</span>
 					<div class="why-icon group-hover:-translate-y-1" aria-hidden="true">
 						<i class={`bx ${whyIcons[index]}`}></i>

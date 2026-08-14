@@ -5,7 +5,13 @@
 <footer>
 	<div class="shell footer-grid">
 		<div class="footer-brand">
-			<img src="/images/logo_new.png" alt="Trinay Cyber Technologies" />
+			<a class="footer-lockup" href="/" aria-label="Trinay Cyber Technologies home">
+				<img src="/images/trinay-cyber-mark-v2.png" alt="" />
+				<span class="brand-wordmark">
+					<strong>TRINAY</strong>
+					<small>CYBER TECHNOLOGIES</small>
+				</span>
+			</a>
 			<p>World Class Cyber Security.</p>
 			<div class="socials">
 				<a href={contact.facebook} target="_blank" rel="noreferrer" aria-label="Trinay on Facebook"

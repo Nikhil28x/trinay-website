@@ -8,8 +8,8 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href="/images/logo_footer.png" />
-	<meta name="theme-color" content="#061b21" />
+	<link rel="icon" href="/images/trinay-cyber-mark-v2.png" />
+	<meta name="theme-color" content="#d08835" />
 </svelte:head>
 
 <Header />

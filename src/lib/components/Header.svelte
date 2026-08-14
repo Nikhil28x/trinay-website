@@ -34,7 +34,11 @@
 <header>
 	<div class="shell nav-wrap">
 		<a class="brand" href="/" aria-label="Trinay Cyber Technologies home" onclick={closeMenu}>
-			<img src="/images/logo_new.png" alt="Trinay Cyber Technologies" />
+			<img src="/images/trinay-cyber-mark-v2.png" alt="" />
+			<span class="brand-wordmark">
+				<strong>TRINAY</strong>
+				<small>CYBER TECHNOLOGIES</small>
+			</span>
 		</a>
 
 		<button
