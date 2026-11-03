@@ -1,217 +1,220 @@
 <script lang="ts">
-	import ContactForm from '$lib/components/ContactForm.svelte';
-	import { approachOptions, homeFeatures, whyTrinay } from '$lib/data';
-
-	const whyIcons = [
-		'bx-shield-quarter',
-		'bx-fingerprint',
-		'bx-target-lock',
-		'bx-money',
-		'bx-check-shield',
-		'bx-time-five'
-	];
-
-	const whyImages = [
-		'/images/services-3.jpg',
-		'/images/services-1.jpg',
-		'/images/services-5.jpg',
-		'/images/services-10.jpg',
-		'/images/services-4.jpg',
-		'/images/services-9.jpg'
-	];
+	import { services, lifecycle, credentials, highlights, reasons } from '$lib/data';
+	import ServiceCard from '$lib/components/ServiceCard.svelte';
+	import Icon from '$lib/components/Icon.svelte';
+	import ContactBanner from '$lib/components/ContactBanner.svelte';
+	let motionPaused = $state(false);
 </script>
 
-<svelte:head>
-	<title>Trinay Cyber Technologies | World Class Cyber Security</title>
-	<meta
+<svelte:head
+	><title>Trinay | Technology solutions, professional services & customer enablement</title><meta
 		name="description"
-		content="Trinay has been helping organizations to gain 360 degree visibility over the security gaps and we are happy to extend our services to your esteemed organization. Fill the details today to speak with an expert about your specific needs."
-	/>
-</svelte:head>
+		content="Partner-led IT consulting, cybersecurity, systems integration, AI and customer training. Trinay connects enterprise architecture with delivery and practical enablement."
+	/></svelte:head
+>
 
-<section class="hero grid-bg">
-	<div class="shell hero-grid">
-		<div class="hero-copy">
-			<h1>We exploit to defend our clients against ever evolving cyber threats</h1>
-			<p class="hero-lede">Penetration Testing Service</p>
-			<div class="button-row">
-				<a class="button button-primary" href="/contact">Contact Us <span>↗</span></a>
+<section class="home-hero watermarked" class:motion-paused={motionPaused}>
+	<div class="hero-copy">
+		<p class="eyebrow">Welcome to Trinay</p>
+		<h1>The next technology,<br /><span>built with confidence.</span></h1>
+		<p class="hero-lead">
+			We help you design, modernize and secure your technology. Then equip your people to make the
+			most of it.
+		</p>
+		<div class="button-row">
+			<a class="button forest" href="/contact">Start your journey <span>↗</span></a><a
+				class="text-link"
+				href="/services">View our services</a
+			>
+		</div>
+		<div class="hero-caption">
+			<span class="caption-rule"></span>Architecture-led. Lifecycle accountable.
+		</div>
+	</div>
+	<div class="hero-art">
+		<img
+			class="hero-photo"
+			src="/media/data-center.webp"
+			alt="Enterprise data center infrastructure with warm gold lighting"
+			width="1586"
+			height="992"
+			fetchpriority="high"
+		/>
+		<div class="art-shade"></div>
+		<div class="orbit-system" aria-hidden="true">
+			<i></i><i></i><i></i>
+			<div class="orbit-core">
+				<img src="/brand/trinay-logo.png" alt="" width="508" height="426" />
 			</div>
 		</div>
-
-		<div class="hero-console" aria-label="Trinay security posture overview">
-			<div class="console-chrome">
-				<div class="chrome-dots"><i></i><i></i><i></i></div>
-				<span>Penetration Testing Service</span>
-				<b>TRINAY</b>
-			</div>
-			<div class="console-body">
-				<div class="console-title">
-					<div>
-						<small>360 DEGREE VISIBILITY</small>
-						<strong class="console-heading">Security posture</strong>
-					</div>
-					<div class="shield-mark">T</div>
-				</div>
-				<div class="coverage-map">
-					<div class="radar">
-						<i></i><i></i><i></i><span></span>
-					</div>
-					<div class="coverage-list">
-						<div>
-							<span>01</span>
-							<p>Automated scans</p>
-							<b>SCAN</b>
-						</div>
-						<div>
-							<span>02</span>
-							<p>Custom pentests</p>
-							<b>TEST</b>
-						</div>
-						<div>
-							<span>03</span>
-							<p>Remediation</p>
-							<b>FIX</b>
-						</div>
-					</div>
-				</div>
-				<div class="console-foot">
-					<span><i></i> Automated techniques</span>
-					<span><i></i> Manual techniques</span>
-				</div>
-			</div>
+		<span class="orbit-label label-network">Networking</span><span class="orbit-label label-cloud"
+			>Cloud</span
+		><span class="orbit-label label-security">Cybersecurity</span><span
+			class="orbit-label label-people">People</span
+		><button
+			class="motion-control"
+			onclick={() => (motionPaused = !motionPaused)}
+			aria-pressed={motionPaused}
+			>{motionPaused ? 'Play motion' : 'Pause motion'}
+			<span aria-hidden="true">{motionPaused ? '▷' : 'Ⅱ'}</span></button
+		>
+		<div class="art-caption">
+			<span>One connected technology estate</span><strong>From architecture to adoption</strong>
 		</div>
+	</div>
+	<div class="hero-lifecycle" aria-label="Full technology lifecycle">
+		{#each lifecycle as step}<span>{step.title}</span>{/each}
 	</div>
 </section>
 
-<section class="home-features" aria-label="Trinay security offerings">
-	<div class="shell home-feature-grid">
-		{#each homeFeatures as feature, index}
-			<article class="home-feature-card">
-				<div class="feature-card-top">
-					<span>{String(index + 1).padStart(2, '0')}</span>
-					<div class="feature-symbol" aria-hidden="true"><i></i><i></i></div>
-				</div>
-				<h2>{feature.title}</h2>
-				<p>{feature.body}</p>
-				{#if feature.description}<p>{feature.description}</p>{/if}
-				{#if feature.bulletHead}<strong>{feature.bulletHead}</strong>{/if}
-				{#if feature.bullets}
-					<ul>
-						{#each feature.bullets as item}<li>{item}</li>{/each}
-					</ul>
-				{/if}
-			</article>
-		{/each}
+<section class="highlight-section section watermarked" aria-label="Featured services">
+	<div class="highlight-grid">
+		{#each highlights as item}<article>
+				<span class="icon-box"><Icon name={item.icon} size={28} /></span>
+				<h3>{item.title}</h3>
+				<p>{item.body}</p>
+				<a class="text-link" href={`/services/${item.slug}`}>Learn more <span>↗</span></a>
+			</article>{/each}
 	</div>
 </section>
 
-<section class="section approach-section" id="approach">
-	<div class="shell approach-grid">
-		<div class="sticky-heading">
-			<p class="eyebrow">Our Approach</p>
-			<h2>You Need More Than Scanning...</h2>
-			<div class="approach-photo">
-				<img
-					src="/images/approach-img-4.jpg"
-					alt="Cyber security professional at work"
-					loading="lazy"
-				/>
-				<span>SCAN + TEST + REMEDIATE</span>
-			</div>
-		</div>
-
-		<div class="approach-copy">
-			<p class="large-copy">
-				Yes! You read it right. Rather than a typical scan or annual pentests, opt for a continuous
-				security programs aka
-			</p>
-			<div class="cadence-list">
-				{#each approachOptions as option, index}
-					<div>
-						<span>{String(index + 1).padStart(2, '0')}</span>
-						<strong>{option}</strong>
-					</div>
-				{/each}
-			</div>
-			<p class="remediation">We are here to guide you! Concentrate on <b>REMEDIATION</b>.</p>
-			<div class="why-copy">
-				<p class="eyebrow">Why is it important?</p>
-				<p>
-					Identifying vulnerabilities requires more effort than simply running automated scans.
-					Automated scan enables better scalability and repeatability for addressing known
-					vulnerabilities. However, it is different to exploit the vulnerabilities and know the
-					impact of the exploit.
-				</p>
-				<p>
-					Trinay's pentests tests are custom approach based on your environment and simulate
-					real-world attacks on various components of your IT environment. It helps to detect the
-					true vulnerabilities and assess your security posture.
-				</p>
-				<p>
-					A combination of both serves a robust security posture and stress free cyber security
-					program.
-				</p>
-			</div>
-		</div>
+<section class="section about-story watermarked" id="about">
+	<div class="about-photo">
+		<img
+			src="/media/consulting.webp"
+			alt="Technology practitioners collaborating on an infrastructure plan"
+			width="1586"
+			height="992"
+			loading="lazy"
+		/>
+	</div>
+	<div>
+		<p class="eyebrow">Who are we?</p>
+		<h2>About Trinay</h2>
+		<p>
+			Trinay is a partner-led technology solutions and professional services organization. We
+			bring consulting, solution architecture and implementation together across your enterprise
+			environment.
+		</p>
+		<p>
+			From networking and data centers to cloud, cybersecurity and AI, we keep the architecture
+			and delivery context connected. Customer training helps that investment translate into
+			everyday capability.
+		</p>
+		<a class="text-link" href="/about">Learn more <span>↗</span></a>
 	</div>
 </section>
 
-<section class="section dark-section">
-	<div class="shell">
-		<div class="section-heading light-heading">
-			<h2>Why Trinay?</h2>
-		</div>
-
-		<div class="why-grid">
-			{#each whyTrinay as item, index}
-				<article class="group">
-					<img class="why-card-image" src={whyImages[index]} alt="" loading="lazy" />
-					<span>{String(index + 1).padStart(2, '0')}</span>
-					<div class="why-icon group-hover:-translate-y-1" aria-hidden="true">
-						<i class={`bx ${whyIcons[index]}`}></i>
-					</div>
-					<h3>{item}</h3>
-				</article>
-			{/each}
-		</div>
-	</div>
+<section class="cta-band watermarked">
+	<h2>Architect your digital advantage.</h2>
+	<a class="button light" href="/services/it-consulting">Discover how <span>↗</span></a>
 </section>
 
-<section class="section about-home">
-	<div class="shell about-home-grid">
-		<div class="about-image-wrap">
-			<img src="/images/about-img.jpg" alt="Trinay cyber security team" loading="lazy" />
-		</div>
-		<div class="about-home-copy">
-			<h2>About Us</h2>
-			<p>
-				Triany has started it's journey by realizing the full potential of the technology and the
-				cyber security gaps arising due to abrupt increase in use of the technology. Our goal is to
-				offer quality services to ensure client's robust security posture to avoid successful
-				attacks.
-			</p>
-			<p>
-				Our team brings together decades of experience in cybersecurity. Our team has significant
-				experience from different communities in the cyber world. We have spent an unprecedented
-				number of hours researching and protecting some of the most sensitive data and systems. Now,
-				we are ready to apply that same experience and expertise in defending IT infrastructure and
-				its components.
-			</p>
-		</div>
-	</div>
-</section>
-
-<section class="section contact-band">
-	<div class="shell contact-band-grid">
+<section class="section reasons-section watermarked" id="why-trinay">
+	<div class="section-heading">
 		<div>
-			<h2>Get In Touch</h2>
-			<p>
-				Trinay has been helping organizations to gain 360 degree visibility over the security gaps
-				and we are happy to extend our services to your esteemed organization. Fill the details
-				today to speak with an expert about your specific needs.
-			</p>
+			<p class="eyebrow">Reasons for choosing us</p>
+			<h2>Why choose Trinay</h2>
 		</div>
-		<ContactForm />
+		<p>
+			Whether you are modernizing infrastructure, strengthening security or exploring AI, we bring
+			the technical depth and the delivery discipline to make it work.
+		</p>
+	</div>
+	<div class="reasons-grid">
+		{#each reasons as reason, i}<article>
+				<span class="step-number">{String(i + 1).padStart(2, '0')}</span>
+				<h3>{reason.title}</h3>
+				<p>{reason.body}</p>
+			</article>{/each}
+	</div>
+	<a class="text-link" href="/about">Learn more <span>↗</span></a>
+</section>
+
+<section class="services-section section watermarked" id="services">
+	<div class="section-heading">
+		<div>
+			<p class="eyebrow">Our key services</p>
+			<h2>Every technology challenge is different.<br />Our practices connect.</h2>
+		</div>
+		<p>
+			Six service practices. One partner from the first conversation to implementation and
+			enablement.
+		</p>
+	</div>
+	<div class="service-grid">
+		{#each services as service, index}<ServiceCard {service} {index} />{/each}
 	</div>
 </section>
+
+<section class="section edge-section watermarked" id="approach">
+	<div class="section-heading">
+		<div>
+			<p class="eyebrow">Trinay</p>
+			<h2>Building the technology edge<br />for every organization.</h2>
+		</div>
+	</div>
+	<div class="edge-stats">
+		<div><strong>{services.length}</strong><span>Connected service practices</span></div>
+		<div><strong>{lifecycle.length}</strong><span>Lifecycle stages, one partner</span></div>
+		<div><strong>{credentials.length}</strong><span>Certified technology domains</span></div>
+	</div>
+	<ol class="lifecycle-grid">
+		{#each lifecycle as step, i}<li>
+				<span class="step-number">{String(i + 1).padStart(2, '0')}</span>
+				<h3>{step.title}</h3>
+				<p>{step.body}</p>
+			</li>{/each}
+	</ol>
+</section>
+
+<section class="enablement-section section watermarked" id="capabilities">
+	<div class="enablement-intro">
+		<p class="eyebrow">Innovation & enablement</p>
+		<h2>Built around your challenge.<br />Taught in your context.</h2>
+		<p>
+			Technology delivers more when your people know how to use it. We shape learning around your
+			problem statements, your tools and the roles that matter.
+		</p>
+		<a class="button forest" href="/capabilities">Explore training & workshops <span>↗</span></a>
+		<div class="learning-visual">
+			<img
+				src="/media/hybrid-cloud.webp"
+				alt="Visual interpretation of interconnected hybrid cloud infrastructure"
+				width="1586"
+				height="992"
+				loading="lazy"
+			/><span>Practical learning, connected to real work</span>
+		</div>
+	</div>
+	<div class="enablement-list">
+		<article>
+			<div class="enablement-icon"><Icon name="compass" size={30} /></div>
+			<h3>Customized training</h3>
+			<p>
+				Your problem statement sets the syllabus. We identify skill gaps and create technical
+				sessions with exercises relevant to your environment.
+			</p>
+			<span>Problem discovery · Tailored curriculum · Hands-on practice</span>
+		</article>
+		<article>
+			<div class="enablement-icon"><Icon name="spark" size={30} /></div>
+			<h3>AI enablement workshops</h3>
+			<p>
+				Help business users, leaders and technical teams explore useful AI workflows, practice
+				prompting and learn how to handle data and verify outputs responsibly.
+			</p>
+			<span>Role-specific use cases · Guided exercises · Responsible use</span>
+		</article>
+		<article>
+			<div class="enablement-icon"><Icon name="book" size={30} /></div>
+			<h3>Product adoption & training decks</h3>
+			<p>
+				Turn deployment into practical knowledge. We train the relevant users and administrators
+				with product walkthroughs, custom decks, lab guides and operational handover.
+			</p>
+			<span>Product walkthroughs · Custom materials · Knowledge transfer</span>
+		</article>
+	</div>
+</section>
+<ContactBanner />

@@ -1,42 +1,46 @@
-# sv
+# Trinay Services & Solutions
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+The active website project is `/Users/nwork/cosol/website`.
 
-## Creating a project
+SvelteKit website rebuilt around the supplied Field Notes concept, the updated Trinay deck and the requested service structure. The design uses cream, forest and gold, a professional sans-serif family, responsive layouts, an animated infrastructure hero and light centered logo silhouettes.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Local development
 
 ```sh
-# create a new project
-npx sv create my-app
+cd /Users/nwork/cosol/website
+npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
-To recreate this project with the same configuration:
+Open `http://127.0.0.1:5173/`.
+
+## Verification and production build
 
 ```sh
-# recreate this project
-npx sv@0.17.0 create --template minimal --types ts --install npm .
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
+npm run check
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+The existing Cloudflare adapter stages output into `dist/`. The Vercel environment retains its existing adapter path.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Pages
+
+- Home, About Trinay, Services, Capabilities, Contact
+- Six service detail pages: IT Consulting, Cybersecurity, Information Security Audit, System Integration DC-WAN-IS, Corporate Training, AI & Data Engineering
+- Existing privacy and terms pages
+- Legacy security service URLs redirect to `/services/cybersecurity`
+
+Capabilities cover customized training based on customer problems, AI enablement workshops, product walkthroughs, custom training decks and knowledge transfer.
+
+## Content and assets
+
+- `src/lib/data.ts`: service catalog, credential portfolio and existing Trinay contacts
+- `src/routes/`: page content
+- `src/app.css`: design system and centered watermarks
+- `static/brand/trinay-logo.png`: original supplied logo
+- `static/media/`: enterprise imagery from the earlier concepts
+- `research/content-and-design.md`: research, sources and content decisions
+- `research/verification.md`: verification record
+
+The enquiry form prepares a message in the visitor’s email application. The visitor reviews and sends it. No backend email submission is configured.
+
+Contact details were preserved from the original Trinay project. They were not independently reverified during this rebuild.

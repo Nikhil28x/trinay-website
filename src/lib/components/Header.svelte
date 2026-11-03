@@ -1,94 +1,62 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { services } from '$lib/data';
-
 	let menuOpen = $state(false);
 	let servicesOpen = $state(false);
-	const desktopNavigation = () =>
-		typeof window !== 'undefined' && window.matchMedia('(min-width: 1051px)').matches;
-
-	const closeMenu = () => {
+	function close() {
 		menuOpen = false;
 		servicesOpen = false;
-	};
-
-	const toggleServices = () => {
-		servicesOpen = desktopNavigation() ? false : !servicesOpen;
-	};
-
-	const releaseDesktopServicesFocus = (event: MouseEvent) => {
-		if (!desktopNavigation()) return;
-
-		servicesOpen = false;
-		(event.currentTarget as HTMLButtonElement).blur();
-	};
-
-	const handleServicesKeydown = (event: KeyboardEvent) => {
-		if (event.key !== 'Escape') return;
-
-		servicesOpen = false;
-		(event.currentTarget as HTMLButtonElement).blur();
-	};
+	}
 </script>
 
-<header>
-	<div class="shell nav-wrap">
-		<a class="brand" href="/" aria-label="Trinay Cyber Technologies home" onclick={closeMenu}>
-			<img src="/images/trinay-cyber-mark-v2.png" alt="" />
-			<span class="brand-wordmark">
-				<strong>TRINAY</strong>
-				<small>CYBER TECHNOLOGIES</small>
-			</span>
-		</a>
-
-		<button
-			class:active={menuOpen}
-			class="menu-toggle"
-			type="button"
-			aria-label="Toggle navigation"
-			aria-expanded={menuOpen}
-			onclick={() => (menuOpen = !menuOpen)}
+<svelte:window
+	onkeydown={(e) => {
+		if (e.key === 'Escape') close();
+	}}
+/>
+<header class="site-header">
+	<div class="header-inner">
+		<a class="brand" href="/" onclick={close} aria-label="Trinay Services and Solutions home"
+			><img
+				src="/brand/trinay-logo.png"
+				alt="Trinay Services & Solutions"
+				width="508"
+				height="426"
+			/></a
 		>
-			<span></span><span></span>
-		</button>
-
-		<nav class:open={menuOpen} aria-label="Main navigation">
-			<a class:active={page.url.pathname === '/'} href="/" onclick={closeMenu}>Home</a>
+		<button
+			class="menu-toggle"
+			onclick={() => (menuOpen = !menuOpen)}
+			aria-expanded={menuOpen}
+			aria-controls="main-navigation"
+			aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+			><span></span><span></span></button
+		>
+		<nav id="main-navigation" class:open={menuOpen} aria-label="Main navigation">
+			<a href="/" class:active={page.url.pathname === '/'} onclick={close}>Home</a>
+			<a href="/about" class:active={page.url.pathname === '/about'} onclick={close}>About us</a>
 			<div class="services-menu">
 				<button
 					class:active={page.url.pathname.startsWith('/services')}
-					type="button"
-					onclick={toggleServices}
-					onmouseleave={releaseDesktopServicesFocus}
-					onkeydown={handleServicesKeydown}
-					aria-haspopup="true"
-					aria-controls="services-dropdown"
+					onclick={() => (servicesOpen = !servicesOpen)}
 					aria-expanded={servicesOpen}
+					aria-controls="services-dropdown"
+					>Services <span class:turned={servicesOpen}>⌄</span></button
 				>
-					Services <span>⌄</span>
-				</button>
-				<div id="services-dropdown" class:show={servicesOpen} class="mega-menu">
-					<div class="mega-intro">
-						<span class="eyebrow">Services</span>
-						<strong>Our Services</strong>
-						<a href="/services" onclick={closeMenu}>View all services <b>↗</b></a>
-					</div>
-					<div class="mega-links">
-						{#each services as service, index}
-							<a href={`/services/${service.slug}`} onclick={closeMenu}>
-								<span>{String(index + 1).padStart(2, '0')}</span>{service.title}
-							</a>
-						{/each}
-					</div>
-				</div>
+				{#if servicesOpen}<div class="services-dropdown" id="services-dropdown">
+						<a href="/services" class="dropdown-overview" onclick={close}
+							>Explore all services <span>↗</span></a
+						>{#each services as s}<a href={`/services/${s.slug}`} onclick={close}>{s.title}</a
+							>{/each}
+					</div>{/if}
 			</div>
-			<a class:active={page.url.pathname === '/about'} href="/about" onclick={closeMenu}>About</a>
-			<a class:active={page.url.pathname === '/contact'} href="/contact" onclick={closeMenu}
-				>Contact Us</a
+			<a href="/capabilities" class:active={page.url.pathname === '/capabilities'} onclick={close}
+				>Capabilities</a
 			>
-			<a class="nav-cta" href="/contact#contact-form" onclick={closeMenu}
-				>Get a Quote <span>↗</span></a
+			<a href="/contact" class:active={page.url.pathname === '/contact'} onclick={close}
+				>Contact us</a
 			>
+			<a class="nav-cta" href="/contact" onclick={close}>Get started <span>↗</span></a>
 		</nav>
 	</div>
 </header>

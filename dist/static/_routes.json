@@ -7,6 +7,7 @@
 	"exclude": [
 		"/_app/version.json",
 		"/_app/immutable/*",
+		"/brand/trinay-logo.png",
 		"/images/about-img.jpg",
 		"/images/approach-img-4.jpg",
 		"/images/delivarables-pentesting.png",
@@ -19,7 +20,12 @@
 		"/images/services-5.jpg",
 		"/images/services-9.jpg",
 		"/images/solution-img.png",
+		"/images/trinay-cyber-mark-v2.png",
 		"/images/why-pentesting.jpg",
+		"/media/consulting.webp",
+		"/media/data-center.webp",
+		"/media/hybrid-cloud.webp",
+		"/media/security.webp",
 		"/robots.txt"
 	]
 }

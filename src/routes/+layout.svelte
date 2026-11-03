@@ -1,17 +1,19 @@
 <script lang="ts">
-	import 'boxicons/css/boxicons.min.css';
 	import '../app.css';
-	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
-
+	import Footer from '$lib/components/Footer.svelte';
 	let { children } = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href="/images/trinay-cyber-mark-v2.png" />
-	<meta name="theme-color" content="#d08835" />
-</svelte:head>
-
-<Header />
-<main>{@render children()}</main>
-<Footer />
+<svelte:head
+	><link rel="icon" href="/brand/trinay-logo.png" /><meta
+		name="theme-color"
+		content="#173d34"
+	/></svelte:head
+>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="page-frame">
+	<Header />
+	<main id="main-content">{@render children()}</main>
+	<Footer />
+</div>

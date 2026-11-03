@@ -2,7 +2,7 @@
 	<title>Privacy Policy | Trinay Cyber Technologies</title>
 </svelte:head>
 
-<section class="page-hero grid-bg">
+<section class="page-hero watermarked">
 	<div class="shell">
 		<h1>Privacy Policy</h1>
 	</div>
@@ -20,8 +20,8 @@
 			Company Email, Company Phone, and Cell Phone Number.
 		</p>
 		<p>
-			This information is protected on a secure server. This information maybe shared to authorized
-			Trinay Cyber Technologies partners/vendors participating in marketing events.
+			The enquiry form prepares an email in your email application. You review and send it there.
+			The website does not submit the form to a separate form-processing service.
 		</p>
 		<p>
 			For more information, please contact

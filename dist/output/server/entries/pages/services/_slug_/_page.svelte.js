@@ -1,43 +1,56 @@
 import { i as head, r as ensure_array_like, v as attr, y as escape_html } from "../../../../chunks/server.js";
-import { a as services, o as whyPentesting, r as deliverables } from "../../../../chunks/data.js";
+import { a as services } from "../../../../chunks/data.js";
+import { t as Icon } from "../../../../chunks/Icon.js";
+import { t as ContactBanner } from "../../../../chunks/ContactBanner.js";
 //#region src/routes/services/[slug]/+page.svelte
 function _page($$renderer, $$props) {
 	$$renderer.component(($$renderer) => {
 		let { data } = $$props;
-		const serviceIndex = services.findIndex((item) => item.slug === data.service.slug);
 		head("1orga13", $$renderer, ($$renderer) => {
 			$$renderer.title(($$renderer) => {
-				$$renderer.push(`<title>${escape_html(data.service.title)} | Trinay Cyber Technologies</title>`);
+				$$renderer.push(`<title>${escape_html(data.service.title)} | Trinay</title>`);
 			});
 			$$renderer.push(`<meta name="description"${attr("content", data.service.body)}/>`);
 		});
-		$$renderer.push(`<section class="service-detail-hero"><div><p class="eyebrow">Service / ${escape_html(String(serviceIndex + 1).padStart(2, "0"))}</p> <h1>${escape_html(data.service.title)}</h1> <p>${escape_html(data.service.body)}</p> <a class="button button-primary" href="/contact#contact-form">Get a Quote <span>↗</span></a></div> <div class="service-detail-image"><img${attr("src", data.service.image)}${attr("alt", data.service.title)}/></div></section> `);
-		if (data.service.bullets) {
-			$$renderer.push("<!--[0-->");
-			$$renderer.push(`<section class="content-section approach-section"><div class="shell two-column-content"><div><p class="eyebrow">PCI ASV Scanning</p> <h2>PCI ASV scans are</h2></div> <ul class="check-list"><!--[-->`);
-			const each_array = ensure_array_like(data.service.bullets);
-			for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-				let item = each_array[$$index];
-				$$renderer.push(`<li>${escape_html(item)}</li>`);
+		$$renderer.push(`<section class="detail-hero section watermarked"><div><a class="breadcrumb" href="/services">All services</a> <p class="eyebrow">${escape_html(data.service.title)}</p> <h1>${escape_html(data.service.headline)}</h1> <p class="detail-lead">${escape_html(data.service.body)}</p> <a class="button forest"${attr("href", `/contact?service=${encodeURIComponent(data.service.title)}`)}>Discuss your requirements <span>↗</span></a></div> <div class="detail-image"><img${attr("src", data.service.image)}${attr("alt", `Technology and professional services supporting ${data.service.title}`)} width="1586" height="992" fetchpriority="high"/></div></section> <section class="section watermarked"><div class="section-heading"><div><p class="eyebrow">How we help</p> <h2>Expertise shaped<br/>around your requirements.</h2></div></div> <div class="module-grid"><!--[-->`);
+		const each_array = ensure_array_like(data.service.modules);
+		for (let $$index_1 = 0, $$length = each_array.length; $$index_1 < $$length; $$index_1++) {
+			let module = each_array[$$index_1];
+			$$renderer.push(`<article><h3>${escape_html(module.title)}</h3> <p>${escape_html(module.body)}</p> <ul class="check-list"><!--[-->`);
+			const each_array_1 = ensure_array_like(module.items);
+			for (let $$index = 0, $$length = each_array_1.length; $$index < $$length; $$index++) {
+				let item = each_array_1[$$index];
+				$$renderer.push(`<li>`);
+				Icon($$renderer, {
+					name: "check",
+					size: 18
+				});
+				$$renderer.push(`<!----><span>${escape_html(item)}</span></li>`);
 			}
-			$$renderer.push(`<!--]--></ul></div></section>`);
-		} else {
-			$$renderer.push("<!--[-1-->");
-			$$renderer.push(`<section class="content-section approach-section"><div class="shell two-column-content"><div><p class="eyebrow">Why Pentesting?</p> <h2>Know what matters most.</h2></div> <ul class="check-list"><!--[-->`);
-			const each_array_1 = ensure_array_like(whyPentesting);
-			for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
-				let item = each_array_1[$$index_1];
-				$$renderer.push(`<li>${escape_html(item)}</li>`);
-			}
-			$$renderer.push(`<!--]--></ul></div></section>`);
+			$$renderer.push(`<!--]--></ul></article>`);
 		}
-		$$renderer.push(`<!--]--> <section class="content-section"><div class="shell two-column-content"><div><p class="eyebrow">What You Receive</p> <h2>Deliverables</h2></div> <ul class="check-list"><!--[-->`);
-		const each_array_2 = ensure_array_like(deliverables);
+		$$renderer.push(`<!--]--></div></section> <section class="section outcomes-section watermarked"><div><p class="eyebrow">What you take forward</p> <h2>A clear set<br/>of deliverables.</h2> <p>We agree scope, responsibilities and success criteria with your team before work begins.</p></div> <ul class="outcome-list"><!--[-->`);
+		const each_array_2 = ensure_array_like(data.service.outcomes);
 		for (let $$index_2 = 0, $$length = each_array_2.length; $$index_2 < $$length; $$index_2++) {
 			let item = each_array_2[$$index_2];
-			$$renderer.push(`<li>${escape_html(item)}</li>`);
+			$$renderer.push(`<li>`);
+			Icon($$renderer, {
+				name: "check",
+				size: 22
+			});
+			$$renderer.push(`<!----><span>${escape_html(item)}</span></li>`);
 		}
-		$$renderer.push(`<!--]--></ul></div></section>`);
+		$$renderer.push(`<!--]--></ul></section> <section class="section watermarked"><div class="section-heading"><h2>Related expertise</h2> <a class="text-link" href="/services">All services ↗</a></div> <div class="related-services"><!--[-->`);
+		const each_array_3 = ensure_array_like(services.filter((s) => s.slug !== data.service.slug).slice(0, 3));
+		for (let $$index_3 = 0, $$length = each_array_3.length; $$index_3 < $$length; $$index_3++) {
+			let related = each_array_3[$$index_3];
+			$$renderer.push(`<a${attr("href", `/services/${related.slug}`)}>`);
+			Icon($$renderer, { name: related.icon });
+			$$renderer.push(`<!----> <h3>${escape_html(related.title)}</h3> <span>Explore ↗</span></a>`);
+		}
+		$$renderer.push(`<!--]--></div></section> `);
+		ContactBanner($$renderer, {});
+		$$renderer.push(`<!---->`);
 	});
 }
 //#endregion

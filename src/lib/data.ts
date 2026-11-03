@@ -1,127 +1,384 @@
+export type ServiceModule = { title: string; body: string; items: string[] };
 export type Service = {
 	title: string;
 	slug: string;
+	short: string;
+	icon: string;
 	image: string;
+	headline: string;
 	body: string;
-	bullets?: string[];
+	modules: ServiceModule[];
+	outcomes: string[];
 };
-
-export type HomeFeature = {
-	title: string;
-	body: string;
-	description?: string;
-	bulletHead?: string;
-	bullets?: string[];
-};
-
 export const services: Service[] = [
 	{
-		title: 'Web App Pentesting',
-		slug: 'web-app-pentesting',
-		image: '/images/services-5.jpg',
-		body: 'Web applications have become the Achilles heel of IT security. Trinay evaluates your web applications using a custom based approach considering the target application features. This can be achieved by identifying the vulnerabilities and exploiting them using automated and manual techniques.'
+		title: 'IT Consulting',
+		slug: 'it-consulting',
+		short: 'A clear architecture. A practical way forward.',
+		icon: 'compass',
+		image: '/media/consulting.webp',
+		headline: 'Technology decisions grounded in your business',
+		body: 'Understand your current environment, define the right architecture and plan the change with confidence. Trinay connects business priorities with technical discovery, solution design and delivery planning.',
+		modules: [
+			{
+				title: 'Strategy & business alignment',
+				body: 'Translate business requirements into technology priorities and an achievable modernization roadmap.',
+				items: [
+					'Stakeholder discovery and business workshops',
+					'Current-state analysis and technology gap assessment',
+					'Technology roadmap and investment prioritization'
+				]
+			},
+			{
+				title: 'Infrastructure & readiness assessments',
+				body: 'Establish an evidence base before committing to a design or migration.',
+				items: [
+					'Infrastructure, network and data center assessments',
+					'Cloud readiness and architecture reviews',
+					'Migration assessment and dependency mapping'
+				]
+			},
+			{
+				title: 'Presales & solution architecture',
+				body: 'Develop architectures that account for integration, resilience and implementation.',
+				items: [
+					'High-level and low-level designs',
+					'Multi-vendor, hybrid cloud and data center architecture',
+					'High availability and disaster recovery planning'
+				]
+			},
+			{
+				title: 'Validation & execution planning',
+				body: 'Test the proposed solution and prepare your teams for delivery.',
+				items: [
+					'Solution demonstrations and proof-of-concept planning',
+					'Migration sequencing and risk assessment',
+					'Business process review and delivery governance'
+				]
+			}
+		],
+		outcomes: [
+			'A documented current-state assessment',
+			'A target architecture and prioritized roadmap',
+			'A scoped delivery plan with clear ownership',
+			'Success criteria for business and technology teams'
+		]
 	},
 	{
-		title: 'Mobile App Pentesting',
-		slug: 'mobile-app-pentesting',
-		image: '/images/services-9.jpg',
-		body: 'Mobile applications became a part of human life, from financial/banking applications to the healthcare. It is important to test these android and iOS applications as they contain personal identifiable information. Trinay offers top-tier mobile application pentesting services.'
+		title: 'Cybersecurity',
+		slug: 'cybersecurity',
+		short: 'Understand exposure. Strengthen every control.',
+		icon: 'shield',
+		image: '/media/security.webp',
+		headline: 'Security built around your real environment',
+		body: 'Identify exploitable weaknesses, validate your defenses and reduce exposure across applications, networks and infrastructure. Our approach combines technical testing with the context your teams need to act.',
+		modules: [
+			{
+				title: 'Security assessment & testing',
+				body: 'Evaluate how an attacker could reach critical systems and what that would mean for your organization.',
+				items: [
+					'Penetration Testing-as-a-Service',
+					'Web, mobile and network application testing',
+					'Red teaming and ransomware assessment',
+					'Vulnerability assessment and PCI ASV scanning'
+				]
+			},
+			{
+				title: 'Security architecture & controls',
+				body: 'Review protection across connected environments and prioritize improvements around material risks.',
+				items: [
+					'Network and cloud security reviews',
+					'Endpoint protection and secure access design',
+					'Firewall configuration and zero-trust architecture reviews'
+				]
+			},
+			{
+				title: 'Governance & preparedness',
+				body: 'Connect security policy, technical controls and the people who use them.',
+				items: [
+					'Managed GRC and audit readiness',
+					'Security awareness training',
+					'Tabletop exercises and response readiness'
+				]
+			},
+			{
+				title: 'Specialized security',
+				body: 'Address exposure beyond the traditional enterprise boundary.',
+				items: [
+					'Dark web monitoring and brand protection',
+					'Operational technology security',
+					'IT–OT convergence and segmentation reviews'
+				]
+			}
+		],
+		outcomes: [
+			'A prioritized assessment of exposure',
+			'Executive and technical findings',
+			'Remediation recommendations tied to business risk',
+			'A practical control improvement plan'
+		]
 	},
 	{
-		title: 'Network Pentesting',
-		slug: 'network-pentesting',
-		image: '/images/services-3.jpg',
-		body: 'Network Pentesting evaluates the internet-facing and internal systems, servers to determine whether they are at risk and exploitable to provide unauthorized access. Determine how an attacker could move laterally and gain access to your network by privilege escaltions.'
+		title: 'Information Security Audit',
+		slug: 'information-security-audit',
+		short: 'Evidence that supports stronger decisions.',
+		icon: 'audit',
+		image: '/media/security.webp',
+		headline: 'A clear view of risk, controls and readiness',
+		body: 'Bring independent assessment and structured evidence to your security program. Trinay reviews configurations, policies and access controls, then turns findings into a practical plan for remediation and compliance readiness.',
+		modules: [
+			{
+				title: 'Security & configuration audits',
+				body: 'Assess how controls operate across your infrastructure and information systems.',
+				items: [
+					'Access management and configuration reviews',
+					'Policy, process and control evaluation',
+					'Infrastructure and application security assessment'
+				]
+			},
+			{
+				title: 'Vulnerability assessment & penetration testing',
+				body: 'Combine automated discovery with manual validation to understand exploitable weaknesses.',
+				items: [
+					'Application, network and cloud assessment',
+					'Attack scenario validation',
+					'Prioritization by impact and exploitability'
+				]
+			},
+			{
+				title: 'Compliance & gap analysis',
+				body: 'Evaluate requirements against standards relevant to your scope and industry.',
+				items: [
+					'Control mapping and evidence review',
+					'Audit readiness and compliance gap assessment',
+					'Remediation planning and action tracking'
+				]
+			},
+			{
+				title: 'Reporting & follow-through',
+				body: 'Make results useful to decision makers and the teams implementing changes.',
+				items: [
+					'Executive summary and technical findings',
+					'Corrective actions and priority levels',
+					'Remediation review and agreed retesting'
+				]
+			}
+		],
+		outcomes: [
+			'An assessment aligned to the agreed scope',
+			'A control and evidence gap register',
+			'Clear technical recommendations',
+			'A prioritized remediation roadmap'
+		]
 	},
 	{
-		title: 'Vulnerability Scanning',
-		slug: 'vulnerability-scanning',
-		image: '/images/services-1.jpg',
-		body: 'Scan your assets and applications on regular intervals to identify vulnerabilities. Trinay performs scanning using a combination of commercial and open source tools to provide more coverage.'
+		title: 'System Integration DC–WAN–IS',
+		slug: 'system-integration-dc-wan-is',
+		short: 'Every infrastructure layer, working together.',
+		icon: 'network',
+		image: '/media/data-center.webp',
+		headline: 'One connected foundation for enterprise technology',
+		body: 'Bring data centers, enterprise networks, cloud and information systems into a consistent architecture. We connect design, deployment and migration so the platform works as a whole.',
+		modules: [
+			{
+				title: 'Data center & enterprise networking',
+				body: 'Build resilient fabrics with the visibility and integration your workloads need.',
+				items: [
+					'Cisco ACI, Nexus and Nexus Dashboard (NDFC, NDI)',
+					'VXLAN, EVPN and Cisco MDS SAN',
+					'Multi-site data center, routing and switching'
+				]
+			},
+			{
+				title: 'WAN & distributed connectivity',
+				body: 'Align branch connectivity with application performance and secure access.',
+				items: [
+					'SD-WAN architecture',
+					'Branch transformation and network modernization',
+					'Network design, integration and optimization'
+				]
+			},
+			{
+				title: 'Compute, storage & hybrid cloud',
+				body: 'Modernize the core while planning for capacity, protection and recoverability.',
+				items: [
+					'Enterprise compute, storage and private cloud',
+					'Nutanix cluster design, AHV integration and migration',
+					'Veeam backup, immutable repositories and recovery workflows',
+					'Lifecycle management, replication and disaster recovery'
+				]
+			},
+			{
+				title: 'Virtualization & container platforms',
+				body: 'Connect infrastructure engineering with the platform your applications run on.',
+				items: [
+					'VMware and server virtualization',
+					'Kubernetes, Red Hat OpenShift and Docker',
+					'GitOps, CI/CD enablement and security hardening',
+					'Day-2 administration, knowledge transfer and support'
+				]
+			}
+		],
+		outcomes: [
+			'Validated architecture and implementation documentation',
+			'A controlled deployment and migration plan',
+			'Availability and recovery validation',
+			'Operational handover and product training'
+		]
 	},
 	{
-		title: 'Ransomware Assessment',
-		slug: 'ransomware-assessment',
-		image: '/images/services-4.jpg',
-		body: 'Trinay experts perform automated and manual testing, and provide a human-assisted intelligence needed to mitigate the risk associated with ransomware.'
+		title: 'Corporate Training',
+		slug: 'corporate-training',
+		short: 'Practical skills shaped around your challenges.',
+		icon: 'learning',
+		image: '/media/consulting.webp',
+		headline: 'Your business problem becomes the learning plan',
+		body: 'Help your teams use technology with confidence. We build customer-specific training around your problem statements, technology environment and the people who will apply the learning.',
+		modules: [
+			{
+				title: 'Customized technical training',
+				body: 'Start with an operational or project challenge, then build a learning path around the skills needed to solve it.',
+				items: [
+					'Discovery of problem statements and skill gaps',
+					'Infrastructure, cloud, security and container curricula',
+					'Scenario-based exercises and practical assessments'
+				]
+			},
+			{
+				title: 'AI enablement workshops',
+				body: 'Give leaders, technical teams and business users a practical introduction to AI in their own workflows.',
+				items: [
+					'Role-specific AI use-case discovery',
+					'Hands-on prompting and workflow exercises',
+					'Responsible use, data handling and output verification',
+					'Next steps for applying the learning'
+				]
+			},
+			{
+				title: 'Product adoption & knowledge transfer',
+				body: 'Train relevant users and administrators on the actual product they will operate.',
+				items: [
+					'Customer-specific product walkthroughs',
+					'Administrator and end-user learning tracks',
+					'Custom training decks, lab guides and quick-reference material',
+					'Operational handover and practitioner-led questions'
+				]
+			},
+			{
+				title: 'Team & leadership enablement',
+				body: 'Help stakeholders make informed decisions and sustain adoption after implementation.',
+				items: [
+					'Technical briefings for leaders and project teams',
+					'Workshops tailored to industry and audience',
+					'Knowledge checks and feedback-led reinforcement'
+				]
+			}
+		],
+		outcomes: [
+			'An agreed problem statement and audience profile',
+			'A tailored learning plan and workshop agenda',
+			'Customer-specific training decks and practical guides',
+			'A knowledge review and recommended next steps'
+		]
 	},
 	{
-		title: 'PCI-ASV Scanning',
-		slug: 'pci-asv-scanning',
-		image: '/images/services-10.jpg',
-		body: "Trinay's ASV Vendors perform the vulnerability scanning solution specifically for PCI DSS compliance.",
-		bullets: [
-			'Non-disruptive',
-			'No stealth installations of softwares',
-			'Inline with PCI reporting structure',
-			'Excludes dangerous tests'
+		title: 'AI & Data Engineering',
+		slug: 'ai-and-data-engineering',
+		short: 'Useful AI starts with dependable data.',
+		icon: 'data',
+		image: '/media/hybrid-cloud.webp',
+		headline: 'Connect your data with the decisions it needs to support',
+		body: 'Create the foundations for practical AI and analytics. We help frame the use case, assess data readiness and shape the architecture needed to move from an idea to a workable solution.',
+		modules: [
+			{
+				title: 'AI strategy & solution design',
+				body: 'Select use cases around the work your organization needs to improve.',
+				items: [
+					'Use-case discovery and feasibility assessment',
+					'AI-assisted workflow and automation design',
+					'Proof-of-concept scoping and evaluation criteria'
+				]
+			},
+			{
+				title: 'Data engineering & integration',
+				body: 'Make data from different sources usable, traceable and ready for analysis.',
+				items: [
+					'Data pipeline and integration architecture',
+					'Structured and unstructured data preparation',
+					'Data quality, access and governance requirements'
+				]
+			},
+			{
+				title: 'Data science & predictive analytics',
+				body: 'Shape analytical approaches around a clear question and suitable data.',
+				items: [
+					'Exploratory analysis and model selection',
+					'Machine learning and predictive use-case design',
+					'Evaluation, reporting and decision-support workflows'
+				]
+			},
+			{
+				title: 'Scalable platforms & adoption',
+				body: 'Prepare infrastructure and people to support the solution in practice.',
+				items: [
+					'Cloud and hybrid infrastructure readiness',
+					'Data platform and model lifecycle planning',
+					'Security, responsible use and customer enablement'
+				]
+			}
+		],
+		outcomes: [
+			'A defined use case and success criteria',
+			'A data readiness and architecture assessment',
+			'A scoped proof-of-concept or implementation roadmap',
+			'Training for the teams using and supporting the solution'
 		]
 	}
 ];
-
-export const whyTrinay = [
-	'Domain Expertise',
-	'Advanced Tactics & Techniques',
-	'Simulation of Real-World Attacks',
-	'Cost Effective',
-	'Tactful Approach',
-	'Quick Turnaround Time'
+export const assessments = [
+	'Infrastructure assessment',
+	'Network assessment',
+	'Data center assessment',
+	'Cloud readiness',
+	'Technology gap analysis',
+	'Architecture review',
+	'Migration assessment'
 ];
-
-export const pentestingServices = [
-	'Web Application Pentesting',
-	'Mobile Application Pentesting',
-	'Internal Pentesting',
-	'External Pentesting'
+export const lifecycle = [
+	{ title: 'Consult', body: 'Understand the business need' },
+	{ title: 'Assess', body: 'Establish the current state' },
+	{ title: 'Design', body: 'Define the architecture' },
+	{ title: 'Implement', body: 'Build and validate' },
+	{ title: 'Migrate', body: 'Transition with control' },
+	{ title: 'Optimize', body: 'Improve the environment' },
+	{ title: 'Manage', body: 'Support the lifecycle' }
 ];
-
-export const homeFeatures: HomeFeature[] = [
+export const credentials = [
 	{
-		title: 'Pentesting-as-a-Service',
-		body: "Trinay simulates real-world cyber attack to test the organization's security posture. Our custom based approach assess critical assets of your IT infrastructure and components.",
-		bullets: pentestingServices
+		group: 'Data center',
+		items: ['Cisco CCIE Data Center', 'Cisco DCACI', 'Nutanix Certified Infrastructure']
 	},
 	{
-		title: 'Ransomware Assessment',
-		body: "Ransomware is not a new threat. It's been evolving since 1980's. Paying a ransom doesn't solve your security problmes and yet there is no guarantee that you will restore your files.",
-		description:
-			'Trinay experts perform automated and manual testing, and provide a human-assisted intelligence needed to mitigate the risk associated with ransomware.'
-	},
-	{
-		title: 'PCI ASV Scanning',
-		body: "Trinay's ASV Vendors perform the vulnerability scanning solution specifically for PCI DSS compliance.",
-		bulletHead: 'PCI ASV scans are',
-		bullets: [
-			'Non-disruptive',
-			'No stealth installations of softwares',
-			'Inline with PCI reporting structure',
-			'Excludes dangerous tests'
+		group: 'Networking & SD-WAN',
+		items: [
+			'Cisco CCIE Routing & Switching',
+			'CCNP ENCOR',
+			'CCNP ENSDWI',
+			'Aruba SD-WAN Deployment Expert',
+			'VMware SD-WAN Design & Deploy'
 		]
-	}
+	},
+	{
+		group: 'Cloud & containers',
+		items: [
+			'Nutanix Certified Associate',
+			'Certified Kubernetes Administrator',
+			'AWS Solutions Architect Professional'
+		]
+	},
+	{ group: 'Secure access', items: ['Zscaler ZIA / ZPA Administrator'] }
 ];
-
-export const approachOptions = [
-	'Quarterly Scanning plus Annual Pentesting',
-	'Monthly Scanning plus Quarterly Pentesting or',
-	'Ad-hoc Scanning plus Pentesting'
-];
-
-export const whyPentesting = [
-	'Know your critical assets at risk',
-	'Gain visibility to the blind spots and expose security gaps',
-	'Penetrate into your applications / systems to know the business impact',
-	'Prioritize what matters the most',
-	'Reduce your attack surface'
-];
-
-export const deliverables = [
-	'Check your compliance and the reporting structure is inline with PCI DSS, SOC, ISO 27K, OWASP, and HIPAA.',
-	'Executive summary for C-level',
-	'Technical report – findings, & recommendations to fix vulnerabilities',
-	'Prioritization of the vulnerabilities for the strategic remediation',
-	'Best practices for secure IT environment'
-];
-
+// Preserved from the existing Trinay project, not copied from the reference company.
 export const contact = {
 	email: 'info@trinaytechnologies.com',
 	indiaPhone: '+91 8919674695',
@@ -130,3 +387,51 @@ export const contact = {
 	facebook: 'https://www.facebook.com/trinaycybertechnologies',
 	linkedin: 'https://www.linkedin.com/company/trinay-cyber-technologies'
 };
+export const highlights = [
+	{
+		title: 'Consulting & architecture',
+		slug: 'it-consulting',
+		icon: 'compass',
+		body: 'Align your technology strategy with business priorities through assessments, solution architecture and practical roadmaps.'
+	},
+	{
+		title: 'Cybersecurity & audit',
+		slug: 'cybersecurity',
+		icon: 'shield',
+		body: 'Understand your exposure, validate your controls and prioritize the improvements that reduce real business risk.'
+	},
+	{
+		title: 'AI & data engineering',
+		slug: 'ai-and-data-engineering',
+		icon: 'data',
+		body: 'Frame useful AI use cases, prepare dependable data and shape the platform needed to move from idea to solution.'
+	}
+];
+export const reasons = [
+	{
+		title: 'Results you can act on',
+		body: 'Every engagement ends in something your team can use: a documented assessment, a validated architecture or a scoped delivery plan.'
+	},
+	{
+		title: 'A partner, not just a vendor',
+		body: 'We work alongside your teams, agree priorities and success criteria up front, and carry decisions through from discovery to handover.'
+	},
+	{
+		title: 'Cross-functional depth',
+		body: 'Networking, data center, cloud, security and AI practitioners work from one architecture context, so nothing is designed in isolation.'
+	}
+];
+export const differentiators = [
+	{
+		title: 'Architecture-led',
+		body: 'Recommendations start from your current environment and requirements, not from a preferred product.'
+	},
+	{
+		title: 'Lifecycle accountable',
+		body: 'We carry requirements and design decisions through implementation, migration and optimization.'
+	},
+	{
+		title: 'Enablement built in',
+		body: 'Documentation, tailored training decks and knowledge transfer help your teams own the result.'
+	}
+];

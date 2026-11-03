@@ -1,81 +1,111 @@
-import { i as head, r as ensure_array_like, t as attr_class, y as escape_html } from "../../chunks/server.js";
-import { i as homeFeatures, s as whyTrinay, t as approachOptions } from "../../chunks/data.js";
-import { t as ContactForm } from "../../chunks/ContactForm.js";
+import { i as head, r as ensure_array_like, t as attr_class, v as attr, y as escape_html } from "../../chunks/server.js";
+import { a as services, i as lifecycle, r as credentials, t as assessments } from "../../chunks/data.js";
+import { t as Icon } from "../../chunks/Icon.js";
+import { t as ServiceCard } from "../../chunks/ServiceCard.js";
+import { t as ContactBanner } from "../../chunks/ContactBanner.js";
 //#region src/routes/+page.svelte
 function _page($$renderer, $$props) {
 	$$renderer.component(($$renderer) => {
-		const whyIcons = [
-			"bx-shield-quarter",
-			"bx-fingerprint",
-			"bx-target-lock",
-			"bx-money",
-			"bx-check-shield",
-			"bx-time-five"
-		];
+		let motionPaused = false;
 		head("1uha8ag", $$renderer, ($$renderer) => {
 			$$renderer.title(($$renderer) => {
-				$$renderer.push(`<title>Trinay Cyber Technologies | World Class Cyber Security</title>`);
+				$$renderer.push(`<title>Trinay | Technology solutions, professional services &amp; customer enablement</title>`);
 			});
-			$$renderer.push(`<meta name="description" content="Trinay has been helping organizations to gain 360 degree visibility over the security gaps and we are happy to extend our services to your esteemed organization. Fill the details today to speak with an expert about your specific needs."/>`);
+			$$renderer.push(`<meta name="description" content="Partner-led IT consulting, cybersecurity, systems integration, AI and customer training. Trinay connects enterprise architecture with delivery and practical enablement."/>`);
 		});
-		$$renderer.push(`<section class="hero grid-bg"><div class="shell hero-grid"><div class="hero-copy"><h1>We exploit to defend our clients against ever evolving cyber threats</h1> <p class="hero-lede">Penetration Testing Service</p> <div class="button-row"><a class="button button-primary" href="/contact">Contact Us <span>↗</span></a></div></div> <div class="hero-console" aria-label="Trinay security posture overview"><div class="console-chrome"><div class="chrome-dots"><i></i><i></i><i></i></div> <span>Penetration Testing Service</span> <b>TRINAY</b></div> <div class="console-body"><div class="console-title"><div><small>360 DEGREE VISIBILITY</small> <strong class="console-heading">Security posture</strong></div> <div class="shield-mark">T</div></div> <div class="coverage-map"><div class="radar"><i></i><i></i><i></i><span></span></div> <div class="coverage-list"><div><span>01</span> <p>Automated scans</p> <b>SCAN</b></div> <div><span>02</span> <p>Custom pentests</p> <b>TEST</b></div> <div><span>03</span> <p>Remediation</p> <b>FIX</b></div></div></div> <div class="console-foot"><span><i></i> Automated techniques</span> <span><i></i> Manual techniques</span></div></div></div></div></section> <section class="home-features" aria-label="Trinay security offerings"><div class="shell home-feature-grid"><!--[-->`);
-		const each_array = ensure_array_like(homeFeatures);
-		for (let index = 0, $$length = each_array.length; index < $$length; index++) {
-			let feature = each_array[index];
-			$$renderer.push(`<article class="home-feature-card"><div class="feature-card-top"><span>${escape_html(String(index + 1).padStart(2, "0"))}</span> <div class="feature-symbol" aria-hidden="true"><i></i><i></i></div></div> <h2>${escape_html(feature.title)}</h2> <p>${escape_html(feature.body)}</p> `);
-			if (feature.description) {
-				$$renderer.push("<!--[0-->");
-				$$renderer.push(`<p>${escape_html(feature.description)}</p>`);
-			} else $$renderer.push("<!--[-1-->");
-			$$renderer.push(`<!--]--> `);
-			if (feature.bulletHead) {
-				$$renderer.push("<!--[0-->");
-				$$renderer.push(`<strong>${escape_html(feature.bulletHead)}</strong>`);
-			} else $$renderer.push("<!--[-1-->");
-			$$renderer.push(`<!--]--> `);
-			if (feature.bullets) {
-				$$renderer.push("<!--[0-->");
-				$$renderer.push(`<ul><!--[-->`);
-				const each_array_1 = ensure_array_like(feature.bullets);
-				for (let $$index = 0, $$length = each_array_1.length; $$index < $$length; $$index++) {
-					let item = each_array_1[$$index];
-					$$renderer.push(`<li>${escape_html(item)}</li>`);
-				}
-				$$renderer.push(`<!--]--></ul>`);
-			} else $$renderer.push("<!--[-1-->");
-			$$renderer.push(`<!--]--></article>`);
+		$$renderer.push(`<section${attr_class("home-hero watermarked", void 0, { "motion-paused": motionPaused })}><div class="hero-copy"><p class="eyebrow">Trinay Services &amp; Solutions</p> <h1>The next technology,<br/><span>built with confidence.</span></h1> <p class="hero-lead">We help you design, modernize and secure your technology. Then equip your people to make the
+			most of it.</p> <div class="button-row"><a class="button forest" href="/services">Explore our services <span>↗</span></a><a class="text-link" href="/capabilities">Build your team’s capability</a></div> <div class="hero-caption"><span class="caption-rule"></span>Architecture-led. Lifecycle accountable.</div></div> <div class="hero-art"><img class="hero-photo" src="/media/data-center.webp" alt="Enterprise data center infrastructure with warm gold lighting" width="1586" height="992" fetchpriority="high"/> <div class="art-shade"></div> <div class="orbit-system" aria-hidden="true"><i></i><i></i><i></i> <div class="orbit-core"><img src="/brand/trinay-logo.png" alt="" width="508" height="426"/></div></div> <span class="orbit-label label-network">Networking</span><span class="orbit-label label-cloud">Cloud</span><span class="orbit-label label-security">Cybersecurity</span><span class="orbit-label label-people">People</span><button class="motion-control"${attr("aria-pressed", motionPaused)}>${escape_html("Pause motion")} <span aria-hidden="true">${escape_html("Ⅱ")}</span></button> <div class="art-caption"><span>One connected technology estate</span><strong>From architecture to adoption</strong></div></div> <div class="hero-lifecycle" aria-label="Full technology lifecycle"><!--[-->`);
+		const each_array = ensure_array_like(lifecycle);
+		for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+			let step = each_array[$$index];
+			$$renderer.push(`<span>${escape_html(step.title)}</span>`);
 		}
-		$$renderer.push(`<!--]--></div></section> <section class="section approach-section" id="approach"><div class="shell approach-grid"><div class="sticky-heading"><p class="eyebrow">Our Approach</p> <h2>You Need More Than Scanning...</h2> <div class="approach-photo"><img src="/images/approach-img-4.jpg" alt="Cyber security professional at work" loading="lazy"/> <span>SCAN + TEST + REMEDIATE</span></div></div> <div class="approach-copy"><p class="large-copy">Yes! You read it right. Rather than a typical scan or annual pentests, opt for a continuous
-				security programs aka</p> <div class="cadence-list"><!--[-->`);
-		const each_array_2 = ensure_array_like(approachOptions);
-		for (let index = 0, $$length = each_array_2.length; index < $$length; index++) {
-			let option = each_array_2[index];
-			$$renderer.push(`<div><span>${escape_html(String(index + 1).padStart(2, "0"))}</span> <strong>${escape_html(option)}</strong></div>`);
+		$$renderer.push(`<!--]--></div></section> <section class="perspective section watermarked" id="perspective"><div class="section-aside"><p class="eyebrow">Our perspective</p> <span class="small-rule"></span> <p>Technology works better<br/>when everything connects.</p></div> <div><h2>Strong infrastructure.<br/>Clear decisions.<br/>People ready to use it.</h2> <div class="perspective-columns"><p>Trinay is a partner-led technology solutions and professional services organization. We
+				bring consulting, solution architecture and implementation together across your enterprise
+				environment.</p> <p>From networking and data centers to cloud, cybersecurity and AI, we keep the architecture
+				and delivery context connected. Customer training helps that investment translate into
+				everyday capability.</p></div> <a class="text-link" href="/about">Get to know Trinay <span>↗</span></a></div></section> <section class="services-section section watermarked" id="services"><div class="section-heading"><div><p class="eyebrow">Our services</p> <h2>Expertise for your<br/>next technology decision.</h2></div> <p>Six connected service practices. One partner from the first conversation to implementation and
+			enablement.</p></div> <div class="service-grid"><!--[-->`);
+		const each_array_1 = ensure_array_like(services);
+		for (let index = 0, $$length = each_array_1.length; index < $$length; index++) {
+			let service = each_array_1[index];
+			ServiceCard($$renderer, {
+				service,
+				index
+			});
 		}
-		$$renderer.push(`<!--]--></div> <p class="remediation">We are here to guide you! Concentrate on <b>REMEDIATION</b>.</p> <div class="why-copy"><p class="eyebrow">Why is it important?</p> <p>Identifying vulnerabilities requires more effort than simply running automated scans.
-					Automated scan enables better scalability and repeatability for addressing known
-					vulnerabilities. However, it is different to exploit the vulnerabilities and know the
-					impact of the exploit.</p> <p>Trinay's pentests tests are custom approach based on your environment and simulate
-					real-world attacks on various components of your IT environment. It helps to detect the
-					true vulnerabilities and assess your security posture.</p> <p>A combination of both serves a robust security posture and stress free cyber security
-					program.</p></div></div></div></section> <section class="section dark-section"><div class="shell"><div class="section-heading light-heading"><h2>Why Trinay?</h2></div> <div class="why-grid"><!--[-->`);
-		const each_array_3 = ensure_array_like(whyTrinay);
-		for (let index = 0, $$length = each_array_3.length; index < $$length; index++) {
-			let item = each_array_3[index];
-			$$renderer.push(`<article class="group"><span>${escape_html(String(index + 1).padStart(2, "0"))}</span> <div class="why-icon group-hover:-translate-y-1" aria-hidden="true"><i${attr_class(`bx ${whyIcons[index]}`)}></i></div> <h3>${escape_html(item)}</h3></article>`);
+		$$renderer.push(`<!--]--></div></section> <section class="enablement-section section watermarked" id="capabilities"><div class="enablement-intro"><p class="eyebrow">Customer capabilities</p> <h2>Built around your challenge.<br/>Taught in your context.</h2> <p>Technology delivers more when your people know how to use it. We shape learning around your
+			problem statements, your tools and the roles that matter.</p> <a class="button forest" href="/capabilities">Explore training &amp; workshops <span>↗</span></a> <div class="learning-visual"><img src="/media/consulting.webp" alt="Technology specialists working through an architecture plan together" width="1586" height="992" loading="lazy"/><span>Practical learning, connected to real work</span></div></div> <div class="enablement-list"><article><div class="enablement-icon">`);
+		Icon($$renderer, {
+			name: "compass",
+			size: 30
+		});
+		$$renderer.push(`<!----></div> <h3>Customized training</h3> <p>Your problem statement sets the syllabus. We identify skill gaps and create technical
+				sessions with exercises relevant to your environment.</p> <span>Problem discovery · Tailored curriculum · Hands-on practice</span></article> <article><div class="enablement-icon">`);
+		Icon($$renderer, {
+			name: "spark",
+			size: 30
+		});
+		$$renderer.push(`<!----></div> <h3>AI enablement workshops</h3> <p>Help business users, leaders and technical teams explore useful AI workflows, practice
+				prompting and learn how to handle data and verify outputs responsibly.</p> <span>Role-specific use cases · Guided exercises · Responsible use</span></article> <article><div class="enablement-icon">`);
+		Icon($$renderer, {
+			name: "book",
+			size: 30
+		});
+		$$renderer.push(`<!----></div> <h3>Product adoption &amp; training decks</h3> <p>Turn deployment into practical knowledge. We train the relevant users and administrators
+				with product walkthroughs, custom decks, lab guides and operational handover.</p> <span>Product walkthroughs · Custom materials · Knowledge transfer</span></article></div></section> <section class="advisory-band section watermarked"><div><p class="eyebrow">Professional services</p> <h2>Evidence before<br/>architecture.</h2> <p>Our consulting and assessment work gives you a decision-ready view of the environment, the
+			gaps and the next steps.</p> <a class="text-link" href="/services/it-consulting">Plan an assessment <span>↗</span></a></div> <div class="assessment-list"><!--[-->`);
+		const each_array_2 = ensure_array_like(assessments);
+		for (let $$index_2 = 0, $$length = each_array_2.length; $$index_2 < $$length; $$index_2++) {
+			let assessment = each_array_2[$$index_2];
+			$$renderer.push(`<div>`);
+			Icon($$renderer, {
+				name: "check",
+				size: 19
+			});
+			$$renderer.push(`<!----><span>${escape_html(assessment)}</span></div>`);
 		}
-		$$renderer.push(`<!--]--></div></div></section> <section class="section about-home"><div class="shell about-home-grid"><div class="about-image-wrap"><img src="/images/about-img.jpg" alt="Trinay cyber security team" loading="lazy"/></div> <div class="about-home-copy"><h2>About Us</h2> <p>Triany has started it's journey by realizing the full potential of the technology and the
-				cyber security gaps arising due to abrupt increase in use of the technology. Our goal is to
-				offer quality services to ensure client's robust security posture to avoid successful
-				attacks.</p> <p>Our team brings together decades of experience in cybersecurity. Our team has significant
-				experience from different communities in the cyber world. We have spent an unprecedented
-				number of hours researching and protecting some of the most sensitive data and systems. Now,
-				we are ready to apply that same experience and expertise in defending IT infrastructure and
-				its components.</p></div></div></section> <section class="section contact-band"><div class="shell contact-band-grid"><div><h2>Get In Touch</h2> <p>Trinay has been helping organizations to gain 360 degree visibility over the security gaps
-				and we are happy to extend our services to your esteemed organization. Fill the details
-				today to speak with an expert about your specific needs.</p></div> `);
-		ContactForm($$renderer, {});
-		$$renderer.push(`<!----></div></section>`);
+		$$renderer.push(`<!--]--></div></section> <section class="method-section section watermarked" id="approach"><div class="section-heading"><div><p class="eyebrow">How we work</p> <h2>One connected lifecycle.</h2></div> <p>We carry requirements, architecture decisions and delivery context through every stage, with
+			documentation and knowledge transfer built in.</p></div> <ol class="lifecycle-grid"><!--[-->`);
+		const each_array_3 = ensure_array_like(lifecycle);
+		for (let i = 0, $$length = each_array_3.length; i < $$length; i++) {
+			let step = each_array_3[i];
+			$$renderer.push(`<li><span class="step-number">${escape_html(String(i + 1).padStart(2, "0"))}</span> <h3>${escape_html(step.title)}</h3> <p>${escape_html(step.body)}</p></li>`);
+		}
+		$$renderer.push(`<!--]--></ol> <div class="method-footer"><span>`);
+		Icon($$renderer, {
+			name: "audit",
+			size: 22
+		});
+		$$renderer.push(`<!---->Structured project governance</span><span>`);
+		Icon($$renderer, {
+			name: "layers",
+			size: 22
+		});
+		$$renderer.push(`<!---->Multi-vendor architecture</span><span>`);
+		Icon($$renderer, {
+			name: "learning",
+			size: 22
+		});
+		$$renderer.push(`<!---->Customer knowledge transfer</span></div></section> <section class="platform-section section watermarked"><div class="section-heading"><div><p class="eyebrow">Infrastructure depth</p> <h2>Modernize the core.<br/>Prepare for what comes next.</h2></div> <a class="text-link" href="/services/system-integration-dc-wan-is">Explore systems integration <span>↗</span></a></div> <div class="platform-feature"><div class="platform-photo"><img src="/media/hybrid-cloud.webp" alt="Visual interpretation of interconnected hybrid cloud infrastructure" width="1586" height="992" loading="lazy"/></div> <div class="platform-list"><article><span>Nutanix</span> <h3>Hybrid infrastructure</h3> <p>Cluster design, AHV integration, migration, lifecycle optimization and Kubernetes
+					platforms.</p></article> <article><span>Veeam</span> <h3>Recovery &amp; resilience</h3> <p>Backup architecture, immutable repositories, granular recovery and disaster recovery
+					workflows.</p></article> <article><span>Red Hat OpenShift</span> <h3>Modern application platforms</h3> <p>Kubernetes architecture, GitOps, security hardening and Day-2 operations with technical
+					training.</p></article></div></div></section> <section class="credentials-section section watermarked"><div class="section-heading"><div><p class="eyebrow">Practitioner expertise</p> <h2>Certified across the<br/>enterprise technology stack.</h2></div> <p>The capability profile brings together credentials across data center, networking, cloud,
+			containers and secure access.</p></div> <div class="credentials-grid"><!--[-->`);
+		const each_array_4 = ensure_array_like(credentials);
+		for (let $$index_5 = 0, $$length = each_array_4.length; $$index_5 < $$length; $$index_5++) {
+			let group = each_array_4[$$index_5];
+			$$renderer.push(`<div><h3>${escape_html(group.group)}</h3> <ul><!--[-->`);
+			const each_array_5 = ensure_array_like(group.items);
+			for (let $$index_4 = 0, $$length = each_array_5.length; $$index_4 < $$length; $$index_4++) {
+				let item = each_array_5[$$index_4];
+				$$renderer.push(`<li>${escape_html(item)}</li>`);
+			}
+			$$renderer.push(`<!--]--></ul></div>`);
+		}
+		$$renderer.push(`<!--]--></div></section> `);
+		ContactBanner($$renderer, {});
+		$$renderer.push(`<!---->`);
 	});
 }
 //#endregion

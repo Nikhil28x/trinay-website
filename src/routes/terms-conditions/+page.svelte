@@ -2,7 +2,7 @@
 	<title>Terms & Conditions | Trinay Cyber Technologies</title>
 </svelte:head>
 
-<section class="page-hero grid-bg">
+<section class="page-hero watermarked">
 	<div class="shell">
 		<h1>Terms & Conditions</h1>
 	</div>
